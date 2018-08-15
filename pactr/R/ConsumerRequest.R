@@ -5,8 +5,9 @@
 #' @export
 ConsumerRequest <- R6Class("ConsumerRequest",
                           public = list(
-                            initialize = function(thePath) {
-                              self$setPath(thePath)
+                            initialize = function(path="/", method="GET") {
+                              self$setPath(path)
+                              self$setMethod(method)
                             },
                             getMethod = function() {
                               private$method
@@ -44,21 +45,33 @@ ConsumerRequest <- R6Class("ConsumerRequest",
                               invisible(self)
                             },
                             jsonReady = function() {
-                              jsonList <- list(
-                                method = private$method,
-                                path = private$path,
-                                headers = private$headers,
-                                body = private$body
-                              )
-                                                      
+                              jsonList <- list()
+                              jsonList$method <- private$method
+                              
+                              if (!is.null(private$headers)) {
+                                jsonList$headers <- private$headers
+                              }
+                              
+                              if (!is.null(private$path)) {
+                                jsonList$path <- private$path
+                              }
+                              
+                              if (!is.null(private$body)) {
+                                jsonList$body <- private$body
+                              }
+                              
+                              if (!is.null(private$query)) {
+                                jsonList$query <- private$query
+                              }
+                              
                               return (jsonList)
                             }
                           ),
                           private = list(
-                            method = character(0),
-                            path = character(0),
-                            query = character(0),
-                            headers = c(),
-                            body = character(0)
+                            method = NULL,
+                            path = NULL,
+                            query = NULL,
+                            headers = NULL,
+                            body = NULL
                           )
 )

@@ -69,15 +69,14 @@ library(jsonlite)
 #res <- httpDELETE(url = paste0(config$getUri(),"/interactions"), curl=curl)
 #res[1]
 
-req <- ConsumerRequest$new("/")
+req <- ConsumerRequest$new(method="POST")
 headers <- list(
   "X-Pact-Mock-Service" = "true",
   "Content-Type" = "application/json"
 )
 
 req$setHeaders(headers)
-req$setQuery("?blah")
-req$setMethod("GET")
+
 req$setBody("Hello Mary")
 
 res <- ProviderResponse$new()

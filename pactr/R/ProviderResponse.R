@@ -29,18 +29,22 @@ ProviderResponse <- R6Class("ProviderResponse",
                               invisible(self)
                             },
                             jsonReady = function() {
-                              jsonList <- list(
-                                status = private$status,
-                                headers = private$headers,
-                                body = private$body
-                              )
+                              jsonList <- list()
+                              jsonList$status <- private$status
+                              
+                              if (!is.null(private$headers)) {
+                                jsonList$headers <- private$headers
+                              }
+                              if (!is.null(private$body)) {
+                                jsonList$body <- private$body
+                              }
                               
                               return (jsonList)
                             }
                           ),
                           private = list(
-                            status = character(0),
-                            headers = c(),
-                            body = character(0)
+                            status = NULL,
+                            headers = NULL,
+                            body = NULL
                           )
 )
