@@ -1,5 +1,6 @@
 #library(httr)
 library(jsonlite)
+#library(rjson)
 #library(RCurl)
 #library(readr)
 #library(curl)
@@ -39,17 +40,17 @@ library(jsonlite)
 #result
 #h$value()
 
-config <- MockServerConfig$new()
-config$setPort(60742)$setHost("localhost")
+#config <- MockServerConfig$new()
+#config$setPort(60742)$setHost("localhost")
 
-service <- MockServerHttpService$new(config)
+#service <- MockServerHttpService$new(config)
 
-j <- read_json(path="D:/Temp/gorilla-zoo-pact.json")
-interactionStr <- paste0('', toJSON(j, auto_unbox = TRUE))
-service$registerInteraction(interactionStr)
-service$deleteAllInteractions()
-c <- service$healthCheck()
-c
+#j <- read_json(path="D:/Temp/gorilla-zoo-pact.json")
+#interactionStr <- paste0('', toJSON(j, auto_unbox = TRUE))
+#service$registerInteraction(interactionStr)
+#service$deleteAllInteractions()
+#c <- service$healthCheck()
+#c
 
 #service$healthCheck();
 #curl <- getCurlHandle()
@@ -67,3 +68,32 @@ c
 
 #res <- httpDELETE(url = paste0(config$getUri(),"/interactions"), curl=curl)
 #res[1]
+
+req <- ConsumerRequest$new("/")
+headers <- list(
+  "X-Pact-Mock-Service" = "true",
+  "Content-Type" = "application/json"
+)
+
+req$setHeaders(headers)
+req$setQuery("?blah")
+req$setMethod("GET")
+req$setBody("Hello Mary")
+
+res <- ProviderResponse$new()
+res$setStatus(200)
+res$setHeaders(headers)
+
+body <- list(
+  description = "General Meetup Categories Response"
+)
+res$setBody(body)
+
+int <- Interaction$new();
+int$setProviderState("My State")
+int$setDescription("My Description")
+int$setRequest(req)
+int$setResponse(res)
+
+jsonlite::toJSON(int$jsonReady(), pretty = TRUE, auto_unbox = TRUE)
+

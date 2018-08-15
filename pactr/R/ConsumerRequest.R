@@ -22,6 +22,13 @@ ConsumerRequest <- R6Class("ConsumerRequest",
                               private$path = val
                               invisible(self)
                             },
+                            getQuery = function() {
+                              private$Query
+                            },
+                            setQuery = function(val) {
+                              private$query = val
+                              invisible(self)
+                            },
                             getHeaders = function() {
                               private$header
                             },
@@ -35,11 +42,22 @@ ConsumerRequest <- R6Class("ConsumerRequest",
                             setBody = function(val) {
                               private$body = val
                               invisible(self)
+                            },
+                            jsonReady = function() {
+                              jsonList <- list(
+                                method = private$method,
+                                path = private$path,
+                                headers = private$headers,
+                                body = private$body
+                              )
+                                                      
+                              return (jsonList)
                             }
                           ),
                           private = list(
                             method = character(0),
                             path = character(0),
+                            query = character(0),
                             headers = c(),
                             body = character(0)
                           )

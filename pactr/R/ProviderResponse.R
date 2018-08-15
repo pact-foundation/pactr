@@ -27,6 +27,15 @@ ProviderResponse <- R6Class("ProviderResponse",
                             setBody = function(val) {
                               private$body = val
                               invisible(self)
+                            },
+                            jsonReady = function() {
+                              jsonList <- list(
+                                status = private$status,
+                                headers = private$headers,
+                                body = private$body
+                              )
+                              
+                              return (jsonList)
                             }
                           ),
                           private = list(

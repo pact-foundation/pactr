@@ -34,6 +34,20 @@ Interaction <- R6Class("Interaction",
                             setResponse = function(val) {
                               private$response = val
                               invisible(self)
+                            },
+                            jsonReady = function() {
+                              jsonList <- list(
+                                description = private$description,
+                                providerState = private$providerState,
+                                request = private$request$jsonReady(),
+                                response = private$response$jsonReady()
+                              )
+                              
+                              return (jsonList)
+                            },
+                            toJSON = function() {
+                              json <- jsonlite::toJSON(self$jsonReady(), auto_unbox = TRUE)
+                              return (json)
                             }
                           ),
                           private = list(
