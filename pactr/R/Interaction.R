@@ -25,6 +25,9 @@ Interaction <- R6Class("Interaction",
                               private$request
                             },
                             setRequest = function(val) {
+                              utility <- PactUtility$new()
+                              utility$EnforceR6ClassType(val, "ConsumerRequest")
+                              
                               private$request = val
                               invisible(self)
                             },
@@ -32,6 +35,9 @@ Interaction <- R6Class("Interaction",
                               private$response
                             },
                             setResponse = function(val) {
+                              utility <- PactUtility$new()
+                              utility$EnforceR6ClassType(val, "ProviderResponse")
+                              
                               private$response = val
                               invisible(self)
                             },
@@ -52,7 +58,7 @@ Interaction <- R6Class("Interaction",
                           ),
                           private = list(
                             description = character(0),
-                            providerState = character(0), #should this be a different object type?
+                            providerState = character(0),
                             request = NA,
                             response = NA
                           )

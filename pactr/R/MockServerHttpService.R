@@ -17,17 +17,18 @@ MockServerHttpService <- R6Class("MockServerHttpService",
                                   )
                                 },
                                 healthCheck = function() {
-                                  curl <- getCurlHandle()
-                                  curlSetOpt(.opts = list(
+                                  h = basicHeaderGatherer()
+                                  
+                                  res <- getURI(url=private$config$getUri(), .opts = list(
                                     httpheader = private$headers,
                                     verbose = TRUE),
-                                    curl = curl
+                                    headerfunction = h$update
                                   )
+                                  
+                                  statusCode <- h$value()["status"]
+                                  
 
-                                  res <- getURLContent(url=private$config$getUri(), curl=curl)
-                                  res <- gsub("[\r\n]", "", res[1])
-
-                                  if (res == "Mock service running") {
+                                  if (statusCode == "200") {
                                     return(TRUE)
                                   }
 
@@ -57,10 +58,60 @@ MockServerHttpService <- R6Class("MockServerHttpService",
                                   return(h$value())
                                 },
                                 verifyInteractions = function() {
-                                  return(TRUE)
+                                  hG = basicHeaderGatherer()
+                                  tG = basicTextGatherer()
+                                  
+                                  url <- paste0(private$config$getUri(), "/interactions/verification")
+                                  res <- getURI(url=url, .opts = list(
+                                    httpheader = private$headers,
+                                    verbose = TRUE),
+                                    headerfunction = hG$update,
+                                    write = tG$update
+                                  )
+                                  
+                                  # @todo add error logs about the verification results
+                                  
+                                  statusCode <- hG$value()["status"]
+                                  
+                                  
+                                  if (statusCode == "200") {
+                                    return(TRUE)
+                                  }
+                                  
+                                  return(FALSE)
                                 },
                                 getPactJson = function() {
                                   return(TRUE)
+                                },
+                                performPactConsumerHttpRequest = function(baseUrl, consumerRequest) {
+                                  utility <- PactUtility$new()
+                                  utility$EnforceR6ClassType(consumerRequest, "ConsumerRequest")
+                                  
+                                  if(tolower(consumerRequest$getMethod()) != tolower("GET")) {
+                                    stop(sprintf("Only supporting GET requests at this point: %s",consumerRequest$getMethod()),call.=FALSE)
+                                  }
+                                  
+                                  url <- paste0(baseUrl,consumerRequest$getPath())
+                                  
+                                  #if (!is.null(consumerRequest?getQuery())) {
+                                    #url <- paste0(url, "?", consumerRequest?getQuery() )
+                                  #}
+                                  
+
+                                  h = basicHeaderGatherer()
+                                  res <- getURI(url, .opts = list(
+                                    httpheader = consumerRequest$getHeaders(),
+                                    verbose = TRUE),
+                                    headerfunction = h$update
+                                  )
+                                  
+                                  statusCode <- h$value()["status"]
+                                  
+                                  if (statusCode == "200") {
+                                    return(TRUE)
+                                  }
+                                  
+                                  return(FALSE)
                                 }
                               ),
                               private = list(

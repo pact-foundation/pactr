@@ -31,7 +31,7 @@ ConsumerRequest <- R6Class("ConsumerRequest",
                               invisible(self)
                             },
                             getHeaders = function() {
-                              private$header
+                              return(private$headers)
                             },
                             setHeaders = function(val) {
                               private$headers = val

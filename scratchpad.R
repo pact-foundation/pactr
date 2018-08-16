@@ -40,16 +40,17 @@ library(jsonlite)
 #result
 #h$value()
 
-#config <- MockServerConfig$new()
-#config$setPort(60742)$setHost("localhost")
+config <- MockServerConfig$new()
+config$setPort(7200)$setHost("localhost")
 
-#service <- MockServerHttpService$new(config)
+service <- MockServerHttpService$new(config)
+service$healthCheck()
 
 #j <- read_json(path="D:/Temp/gorilla-zoo-pact.json")
 #interactionStr <- paste0('', toJSON(j, auto_unbox = TRUE))
 #service$registerInteraction(interactionStr)
 #service$deleteAllInteractions()
-#c <- service$healthCheck()
+
 #c
 
 #service$healthCheck();
@@ -69,15 +70,14 @@ library(jsonlite)
 #res <- httpDELETE(url = paste0(config$getUri(),"/interactions"), curl=curl)
 #res[1]
 
-req <- ConsumerRequest$new(method="POST")
+req <- ConsumerRequest$new(method="get", path="/6/categories")
 headers <- list(
-  "X-Pact-Mock-Service" = "true",
+  #"X-Pact-Mock-Service" = "true",
   "Content-Type" = "application/json"
 )
 
 req$setHeaders(headers)
-
-req$setBody("Hello Mary")
+#req$setBody("Hello Mary")
 
 res <- ProviderResponse$new()
 res$setStatus(200)
@@ -94,5 +94,27 @@ int$setDescription("My Description")
 int$setRequest(req)
 int$setResponse(res)
 
-jsonlite::toJSON(int$jsonReady(), pretty = TRUE, auto_unbox = TRUE)
+interactionStr <- jsonlite::toJSON(int$jsonReady(), auto_unbox = TRUE)
+
+service$registerInteraction(interactionStr)
+url <- paste0(config$getUri(),req$getPath())
+
+#h = basicHeaderGatherer()
+#res <- getURI(url, .opts = list(
+  #httpheader = req$getHeaders(),
+  #verbose = TRUE),
+  #headerfunction = h$update
+#)
+
+service$performPactConsumerHttpRequest(config$getUri(), req)
+service$verifyInteractions()
+
+#h = basicHeaderGatherer()
+
+#res <- getURI(url=config$getUri(), .opts = list(
+  #httpheader = headers,
+  #verbose = TRUE),
+  #headerfunction = h$update
+#)
+#h$value()["status"]
 
