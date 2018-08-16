@@ -81,7 +81,15 @@ MockServerHttpService <- R6Class("MockServerHttpService",
                                   return(FALSE)
                                 },
                                 getPactJson = function() {
-                                  return(TRUE)
+                                  h = basicTextGatherer()
+                                  result <- curlPerform(url = paste0(private$config$getUri(),"/pact"),
+                                                        httpheader=private$headers,
+                                                        postfields="",
+                                                        writefunction = h$update,
+                                                        verbose = TRUE
+                                  )
+                                  
+                                  return(h$value())
                                 },
                                 performPactConsumerHttpRequest = function(baseUrl, consumerRequest) {
                                   utility <- PactUtility$new()
@@ -93,9 +101,9 @@ MockServerHttpService <- R6Class("MockServerHttpService",
                                   
                                   url <- paste0(baseUrl,consumerRequest$getPath())
                                   
-                                  #if (!is.null(consumerRequest?getQuery())) {
-                                    #url <- paste0(url, "?", consumerRequest?getQuery() )
-                                  #}
+                                  if (!is.null(consumerRequest$getQuery())) {
+                                    url <- paste0(url, "?", consumerRequest$getQuery() )
+                                  }
                                   
 
                                   h = basicHeaderGatherer()

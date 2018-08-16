@@ -24,7 +24,7 @@ ConsumerRequest <- R6Class("ConsumerRequest",
                               invisible(self)
                             },
                             getQuery = function() {
-                              private$Query
+                              private$query
                             },
                             setQuery = function(val) {
                               private$query = val

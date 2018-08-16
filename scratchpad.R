@@ -77,7 +77,6 @@ headers <- list(
 )
 
 req$setHeaders(headers)
-#req$setBody("Hello Mary")
 
 res <- ProviderResponse$new()
 res$setStatus(200)
@@ -99,22 +98,9 @@ interactionStr <- jsonlite::toJSON(int$jsonReady(), auto_unbox = TRUE)
 service$registerInteraction(interactionStr)
 url <- paste0(config$getUri(),req$getPath())
 
-#h = basicHeaderGatherer()
-#res <- getURI(url, .opts = list(
-  #httpheader = req$getHeaders(),
-  #verbose = TRUE),
-  #headerfunction = h$update
-#)
-
 service$performPactConsumerHttpRequest(config$getUri(), req)
 service$verifyInteractions()
 
-#h = basicHeaderGatherer()
-
-#res <- getURI(url=config$getUri(), .opts = list(
-  #httpheader = headers,
-  #verbose = TRUE),
-  #headerfunction = h$update
-#)
-#h$value()["status"]
-
+pactJSON <- service$getPactJson()
+pactJSON <- toJSON(fromJSON(pactJSON), auto_unbox = TRUE, pretty = TRUE)
+pactJSON
