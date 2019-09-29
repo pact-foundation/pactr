@@ -3,7 +3,7 @@ Title: R version of Pact. Enables consumer driven contract testing. Please read 
 Version: 0.0.0.9000
 Authors@R: person("Charles", "Mack", email = "c.f.mack@gmail.com", role = c("aut", "cre"))
 Description: R version of Pact. Enables consumer driven contract testing, providing a mock service and DSL for the consumer project, and interaction playback and verification for the service provider project 
-Depends: R (>= 3.5.0), R6, RCurl, jsonlite
+Depends: R (>= 3.5.0), R6, RCurl, jsonlite, untar
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true

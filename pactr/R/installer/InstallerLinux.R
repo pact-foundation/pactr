@@ -16,7 +16,11 @@ InstallerLinux <- R6Class("InstallerLinux",
                                 fileName <- paste0('pact-', private$pactRubyStandaloneVersion,'-linux-x86_64.tar.gz');
                                 tempFilePath <- paste0(tempdir(), "/", fileName)
                                 private$download(fileName,tempFilePath)
+                                private$extract(tempFilePath,destinationDir)
+                                private$deleteCompressed(tempFilePath)
                               }
+
+                              # ... return scripts object
                         }
                        ),
                        private = list(
@@ -24,6 +28,13 @@ InstallerLinux <- R6Class("InstallerLinux",
                          download = function(fileName, tempFilePath) {
                            uri <- paste0('https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v', private$pactRubyStandaloneVersion , "/" , fileName);
                            download.file (uri,tempFilePath)
+                         },
+                         extract = function(sourceFile, destinationDir) {
+                           untar(sourceFile,exdir=destinationDir)
+                         },
+                         deleteCompressed = function(filePath) {
+                           file.remove(filePath)
                          }
+
                        )
 )
