@@ -104,3 +104,8 @@ service$verifyInteractions()
 pactJSON <- service$getPactJson()
 pactJSON <- toJSON(fromJSON(pactJSON), auto_unbox = TRUE, pretty = TRUE)
 pactJSON
+
+library("R6")
+source("./R/installer/InstallerLinux.R")
+installer <- InstallerLinux$new()
+installer$install("/tmp")

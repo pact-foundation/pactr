@@ -11,12 +11,19 @@ InstallerLinux <- R6Class("InstallerLinux",
                            }
                            return (FALSE);
                          },
-                         download = function(fileName, tempFilePath) {
-                           uri = paste0('https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v', private$pactRubyStandaloneVersion , "/" , fileName);
-                           download.file (uri, paste0(tempFilePath,"/",fileName))
-                         }
+                         install = function(destinationDir) {
+                              if (!file.exists(paste0(destinationDir,"/","pact"))) {
+                                fileName <- paste0('pact-', private$pactRubyStandaloneVersion,'-linux-x86_64.tar.gz');
+                                tempFilePath <- paste0(tempdir(), "/", fileName)
+                                private$download(fileName,tempFilePath)
+                              }
+                        }
                        ),
                        private = list(
-                         pactRubyStandaloneVersion = '1.54.4'
+                         pactRubyStandaloneVersion = '1.54.4',
+                         download = function(fileName, tempFilePath) {
+                           uri <- paste0('https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v', private$pactRubyStandaloneVersion , "/" , fileName);
+                           download.file (uri,tempFilePath)
+                         }
                        )
 )
