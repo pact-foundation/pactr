@@ -20,7 +20,14 @@ InstallerLinux <- R6Class("InstallerLinux",
                                 private$deleteCompressed(tempFilePath)
                               }
 
-                              # ... return scripts object
+                              scripts = PactScripts$new(
+                                paste0(destinationDir,"/pact/bin/pact-mock-service"),
+                                paste0(destinationDir,"/pact/bin/pact-stub-service"),
+                                paste0(destinationDir,"/pact/bin/pact-provider-verifier"),
+                                paste0(destinationDir,"/pact/bin/pact-message")
+                              )
+
+                              return (scripts)
                         }
                        ),
                        private = list(

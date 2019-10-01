@@ -107,5 +107,6 @@ pactJSON
 
 library("R6")
 source("./R/installer/InstallerLinux.R")
+source("./R/installer/PactScripts.R")
 installer <- InstallerLinux$new()
 installer$install("/tmp")
