@@ -7,6 +7,7 @@ To Do:
 - Start buidling out the process to kick off asynchronous proceses
 - Find away to build "includes" into the library and into a folder structure
 - Start integrations into unit tests
+- Follow up on PDF building https://github.com/travis-ci/travis-ci/issues/5619 AND https://yihui.name/tinytex/
 - Much much more ...
 
 TIL ... roxygen does not support subfolders
