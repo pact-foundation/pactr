@@ -7,7 +7,6 @@ R version of [Pact](https://pact.io). Enables consumer driven contract testing. 
 - Create Mac version of the installer 
 - Find a way to gracefully shut down the thread even if the R session gets out of whack (freeze RStudio)
 - Find the right way to bootstrap consumer servers in unit tests.  Perhaps in testthat.R
-- Follow up on PDF building https://github.com/travis-ci/travis-ci/issues/5619 AND https://yihui.name/tinytex/
 - Add hooks into the Pact Broker
 - Build getParameters() for consumer rather than outside in scratchpad.R example
 - Do input valiation on PactVerifierConfig
@@ -18,7 +17,9 @@ R version of [Pact](https://pact.io). Enables consumer driven contract testing. 
 - something is goofy when attempting to kill a process in linux using stop().
 - build out the rest of the process x wrapper commands into ProcessRunner.R process_x_args and buildProcess()
 - Create devtools::install_github()
-- Do the Provider documentation
+- Get Travis CI with a compiling build
+- Add Packrat for dependency management
+- Run tests via Travis CI
 - Much much more ...
 
 ## Versions
