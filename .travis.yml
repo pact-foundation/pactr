@@ -1,0 +1,9 @@
+sudo: required
+
+os:
+  - linux
+
+language: r
+
+script:
+ - echo "hello R"
