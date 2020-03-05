@@ -7,7 +7,8 @@ InstallManager <- R6Class(
   public = list(
     install = function() {
       downloader = private$getDownloader()
-      downloader$install(destinationDir)
+      scripts <- downloader$install(private$destinationDir)
+      return(scripts)
     },
     setDestinationDir = function (dir) {
       private$destinationDir = dir
@@ -24,9 +25,14 @@ InstallManager <- R6Class(
       if (linux$isEligible() == TRUE) {
         return (linux)
       }
-      else {
-        stop("Only Linux installer has been built so far", call. = FALSE)
+      
+      windows <- InstallerWindows$new() 
+      if (windows$isEligible() == TRUE) {
+        return (windows)
       }
+      
+      # to do: support Mac OS
+      stop("OS installer could not be found", call. = FALSE)
     }
   )
 )

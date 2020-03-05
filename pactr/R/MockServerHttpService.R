@@ -47,12 +47,20 @@ MockServerHttpService <- R6Class(
       return(res[1])
     },
     registerInteraction = function(interaction) {
+      interactionStr <-
+        jsonlite::toJSON(
+          interaction$jsonReady(),
+          auto_unbox = TRUE,
+          simplifyVector = FALSE,
+          simplifyDataFrame = FALSE,
+          simplifyMatrix = FALSE
+        )
       h = basicTextGatherer()
       result <-
         curlPerform(
           url = paste0(private$config$getUri(), "/interactions"),
           httpheader = private$headers,
-          postfields = interaction,
+          postfields = interactionStr,
           writefunction = h$update,
           verbose = TRUE
         )
@@ -118,7 +126,6 @@ MockServerHttpService <- R6Class(
       if (!is.null(consumerRequest$getQuery())) {
         url <- paste0(url, "?", consumerRequest$getQuery())
       }
-      
       
       h = basicHeaderGatherer()
       res <- getURI(

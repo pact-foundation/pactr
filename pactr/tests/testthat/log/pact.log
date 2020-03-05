@@ -1,0 +1,40 @@
+I, [2020-02-04T23:29:49.332920 #10075]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-04T23:29:49.333538 #10075]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-04T23:29:49.333655 #10075] DEBUG -- : body :
+I, [2020-02-04T23:29:49.566906 #10075]  INFO -- : Received response with status: 200, headers: {"Date"=>"Wed, 05 Feb 2020 05:29:49 GMT\nWed, 05 Feb 2020 05:29:49 AM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-04T23:29:49.567135 #10075] DEBUG -- : body: {"message":"Hello, Bob"}
+I, [2020-02-05T19:00:21.689020 #2623]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-05T19:00:21.690454 #2623]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-05T19:00:21.690637 #2623] DEBUG -- : body :
+I, [2020-02-05T19:00:22.066675 #2623]  INFO -- : Received response with status: 200, headers: {"Date"=>"Thu, 06 Feb 2020 01:00:22 GMT\nThu, 06 Feb 2020 01:00:22 AM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-05T19:00:22.066928 #2623] DEBUG -- : body: {"message":"Hello, Bob"}
+I, [2020-02-05T19:07:03.543726 #2816]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-05T19:07:03.544335 #2816]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-05T19:07:03.544454 #2816] DEBUG -- : body :
+I, [2020-02-05T19:07:03.765071 #2816]  INFO -- : Received response with status: 200, headers: {"Date"=>"Thu, 06 Feb 2020 01:07:03 GMT\nThu, 06 Feb 2020 01:07:03 AM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-05T19:07:03.765313 #2816] DEBUG -- : body: {"message":"Hello, Bob"}
+I, [2020-02-05T19:07:45.616496 #2942]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-05T19:07:45.617132 #2942]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-05T19:07:45.617252 #2942] DEBUG -- : body :
+I, [2020-02-05T19:07:45.941633 #2942]  INFO -- : Received response with status: 200, headers: {"Date"=>"Thu, 06 Feb 2020 01:07:45 GMT\nThu, 06 Feb 2020 01:07:45 AM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-05T19:07:45.942245 #2942] DEBUG -- : body: {"message":"Hello, Bob"}
+I, [2020-02-08T07:12:58.324476 #3234]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-08T07:12:58.325918 #3234]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-08T07:12:58.326088 #3234] DEBUG -- : body :
+I, [2020-02-08T07:12:58.636286 #3234]  INFO -- : Received response with status: 200, headers: {"Date"=>"Sat, 08 Feb 2020 13:12:58 GMT\nSat, 08 Feb 2020 01:12:58 PM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-08T07:12:58.636501 #3234] DEBUG -- : body: {"message":"Hello, Bob"}
+I, [2020-02-08T07:16:07.304740 #3384]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-08T07:16:07.305346 #3384]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-08T07:16:07.305455 #3384] DEBUG -- : body :
+I, [2020-02-08T07:16:07.595279 #3384]  INFO -- : Received response with status: 200, headers: {"Date"=>"Sat, 08 Feb 2020 13:16:07 GMT\nSat, 08 Feb 2020 01:16:07 PM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-08T07:16:07.595488 #3384] DEBUG -- : body: {"message":"Hello, Bob"}
+I, [2020-02-08T07:18:32.115901 #3530]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-08T07:18:32.116523 #3530]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-08T07:18:32.116625 #3530] DEBUG -- : body :
+I, [2020-02-08T07:18:32.288798 #3530]  INFO -- : Received response with status: 200, headers: {"Date"=>"Sat, 08 Feb 2020 13:18:32 GMT\nSat, 08 Feb 2020 01:18:32 PM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-08T07:18:32.288998 #3530] DEBUG -- : body: {"message":"Hello, Bob"}
+I, [2020-02-25T08:09:26.416380 #2644]  INFO -- : Running example 'Verifying a pact between someConsumer and someProvider Given [] Hello Bob with GET /hello/Bob returns a response which has status code 200'
+I, [2020-02-25T08:09:26.417769 #2644]  INFO -- : Sending GET request to path: "/hello/Bob" with headers: {"HTTP_X_PACT_MOCK_SERVICE"=>"true", "CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"X-Pact-Mock-Service,Content-Type"}, see debug logs for body
+D, [2020-02-25T08:09:26.417951 #2644] DEBUG -- : body :
+I, [2020-02-25T08:09:26.710054 #2644]  INFO -- : Received response with status: 200, headers: {"Date"=>"Tue, 25 Feb 2020 14:09:26 GMT\nTue, 25 Feb 2020 02:09:26 PM GMT", "Content-Type"=>"application/json", "Connection"=>"close", "Content-Length"=>"24"}, see debug logs for body
+D, [2020-02-25T08:09:26.710271 #2644] DEBUG -- : body: {"message":"Hello, Bob"}
