@@ -133,9 +133,7 @@ shell_binary <- function () {
 handle <- spawn_process(shell_binary())
 print(handle)
 
-process_write(handle, "php /home/cmack/Code/turner.php\n")
 
-process_write(handle, "php /home/cmack/pact-php/log/testproc.php\n")
 
 #> [1] 3
 Sys.sleep(1)
@@ -250,8 +248,8 @@ p <- mockServer$start()
 plumber_server_runner <-
   pactr::ProcessRunner$new(
     "/usr/bin/Rscript",
-    c("--vanilla", "/home/cmack/pactr/example/run_server.R"),
-    list("stdout" = "/home/cmack/pactr/example/out.txt", "stderr" = "/home/cmack/pactr/example/err.txt")
+    c("--vanilla", "~/pactr/example/run_server.R"),
+    list("stdout" = "~/pactr/example/out.txt", "stderr" = "~/pactr/example/err.txt")
   )
 plumber_server_process <- plumber_server_runner$runNonBlocking()
 
@@ -261,8 +259,8 @@ config$setProviderName("someProvider");
 config$setProviderBaseUrl("http://localhost:8000");
 config$setProviderVersion("1.0.0");
 verifier <- pactr::PactVerifier$new(config);
-process_x_args = list("stdout" = "|", "stderr" = "/home/cmack/pactr/example/verr.txt")
-verifier <- verifier$verifyFiles(c("/home/cmack/pactr/output/someconsumer-someprovider.json"), process_x_args)
+process_x_args = list("stdout" = "|", "stderr" = "~/pactr/example/verr.txt")
+verifier <- verifier$verifyFiles(c("~/pactr/output/someconsumer-someprovider.json"), process_x_args)
 
 #why does this not work?
 plumber_server_runner$stop()
