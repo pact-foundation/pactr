@@ -5,5 +5,8 @@ os:
 
 language: r
 
+install:
+  - echo "hello install"
+
 script:
- - echo "hello R"
+  - echo "hello R"
