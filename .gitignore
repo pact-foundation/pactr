@@ -40,3 +40,8 @@ rsconnect/
 pact-bin/
 output/
 example/logs/*
+
+# packrat
+pactr/packrat/src/*
+pactr/packrat/lib/*
+

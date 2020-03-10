@@ -1,2 +1,0 @@
-setwd("./pactr")
-devtools::test()
