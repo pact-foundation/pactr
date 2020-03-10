@@ -15,8 +15,8 @@ Hash: 8eccabbf292b5aba632985cde6406fc3
 
 Package: RCurl
 Source: CRAN
-Version: 1.95-4.11
-Hash: 98b1b04db217dc56baca68aa34079fdd
+Version: 1.98-1.1
+Hash: f227d07d2c9e2e0f994d4f2516fe8a1c
 Requires: bitops
 
 Package: Rcpp
