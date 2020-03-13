@@ -1,6 +1,7 @@
 ######################################################################
-# Http Service that interacts with the Ruby Standalone Mock Server
-#
+#' Http Service that interacts with the Ruby Standalone Mock Server
+#'
+#' @importFrom R6 R6Class 
 #' @export
 MockServerHttpService <- R6Class(
   "MockServerHttpService",

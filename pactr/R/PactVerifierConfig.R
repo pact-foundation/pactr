@@ -1,6 +1,7 @@
 ######################################################################
-# Verifier Configuation object to configure use of the Pact Verifier
-#
+#' Verifier Configuation object to configure use of the Pact Verifier
+#'
+#' @importFrom R6 R6Class 
 #' @export
 PactVerifierConfig <- R6Class(
   "PactVerifierConfig",

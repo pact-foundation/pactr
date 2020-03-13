@@ -1,6 +1,7 @@
 ######################################################################
-# Class to download and install Ruby
-#
+#' Class to download and install Ruby
+#'
+#' @importFrom R6 R6Class 
 #' @export
 InstallerWindows <- R6Class(
   "InstallerWindows",

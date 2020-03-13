@@ -1,6 +1,7 @@
 ######################################################################
-# Encapsulate some helper functions
-#
+#' Encapsulate some helper functions
+#' 
+#' @importFrom R6 R6Class 
 #' @export
 PactUtility <- R6Class(
   "PactUtility",

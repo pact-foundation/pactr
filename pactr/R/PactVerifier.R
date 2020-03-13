@@ -1,7 +1,9 @@
 ######################################################################
-# Create the Verifier object
-#
-# Wrapper for the Ruby Standalone Verifier service.
+#' Create the Verifier object
+#'
+#' Wrapper for the Ruby Standalone Verifier service.
+#' 
+#' @importFrom R6 R6Class 
 #' @export
 PactVerifier <- R6Class(
   "PactVerifier",

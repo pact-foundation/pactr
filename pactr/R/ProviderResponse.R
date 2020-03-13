@@ -1,7 +1,9 @@
 ######################################################################
-# Create the Provider Response object
-#
-# This is used as a DSL representing a response
+#' Create the Provider Response object
+#'
+#' This is used as a DSL representing a response
+#'
+#' @importFrom R6 R6Class
 #' @export
 ProviderResponse <- R6Class(
   "ProviderResponse",

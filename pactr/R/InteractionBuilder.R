@@ -1,6 +1,7 @@
 ######################################################################
-# Build an interaction and send it to the Ruby Standalone Mock Service
-#
+#' Build an interaction and send it to the Ruby Standalone Mock Service
+#'
+#' @importFrom R6 R6Class 
 #' @export
 InteractionBuilder <- R6Class(
   "InteractionBuilder",

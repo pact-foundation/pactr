@@ -7,7 +7,7 @@ Depends: R (>= 3.5.0)
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Repository: CRAN
 Imports: 
     R6,

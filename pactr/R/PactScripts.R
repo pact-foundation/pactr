@@ -1,6 +1,7 @@
 ######################################################################
-# Wrapper for all the Ruby Pact Scripts to call
-#
+#' Wrapper for all the Ruby Pact Scripts to call
+#'
+#' @importFrom R6 R6Class 
 #' @export
 PactScripts <- R6Class(
   "PactScripts",

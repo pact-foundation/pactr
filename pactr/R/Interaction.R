@@ -1,7 +1,8 @@
 ######################################################################
-# Create the Pact Interaction object
-#
-# This is used as a DSL representing an Interaction
+#' Create the Pact Interaction object
+#'
+#' This is used as a DSL representing an Interaction
+#' @importFrom R6 R6Class 
 #' @export
 Interaction <- R6Class(
   "Interaction",

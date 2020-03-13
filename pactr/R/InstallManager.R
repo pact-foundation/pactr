@@ -1,6 +1,7 @@
 ######################################################################
-# Managing classes to install Ruby
-#
+#' Managing classes to install Ruby
+#'
+#' @importFrom R6 R6Class 
 #' @export
 InstallManager <- R6Class(
   "InstallManager",

@@ -1,7 +1,9 @@
 ######################################################################
-# Create the matcher object
-#
-# This is used as a DSL for matchers
+#' Create the matcher object
+#'
+#' This is used as a DSL for matchers
+#' 
+#' @importFrom R6 R6Class 
 #' @export
 Matcher <- R6Class("Matcher",
                    public = list(

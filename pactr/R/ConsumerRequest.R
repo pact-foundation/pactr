@@ -1,7 +1,8 @@
 ######################################################################
-# Create the Consumer Request object
-#
-# This is used as a DSL representing a request
+#' Create the Consumer Request object
+#'
+#' This is used as a DSL representing a request
+#' @importFrom R6 R6Class 
 #' @export
 ConsumerRequest <- R6Class(
   "ConsumerRequest",

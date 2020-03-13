@@ -1,6 +1,7 @@
 ######################################################################
-# Create the Mock Server  object
-#
+#' Create the Mock Server  object
+#'
+#' @importFrom R6 R6Class 
 #' @export
 MockServer <- R6Class(
   "MockServer",
