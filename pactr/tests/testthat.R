@@ -1,3 +1,5 @@
+setwd("./pactr")
+
 library(testthat)
 library(pactr)
 

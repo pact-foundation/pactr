@@ -8,6 +8,6 @@ language: r
 install:
   - Rscript .build/prep.R
   - Rscript .build/build.R
-
+  - Rscript pactr/tests/testthat.R
 script:
   - echo "hello R"

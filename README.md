@@ -19,7 +19,6 @@ R version of [Pact](https://pact.io). Enables consumer driven contract testing. 
 - build out the rest of the process x wrapper commands into ProcessRunner.R process_x_args and buildProcess()
 - Create devtools::install_github()
 - Get Travis CI with a compiling build
-- Add Packrat for dependency management
 - Run tests via Travis CI
 - Much much more ...
 
